@@ -1,0 +1,245 @@
+
+/* Google Fonts - Roboto imported */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Mono", sans-serif;
+}
+
+body{
+    background-color: rgb(131, 146, 240);
+    background-image: linear-gradient(to right, rgb(177, 111, 228), rgb(131, 146, 240), rgb(177,111,228));
+}
+
+.popup-box{
+position: fixed;
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+background: rgb(63,94,251);
+background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(225,196,90,0.7682423311121324) 13%, rgba(252,70,107,1) 71%);
+z-index: 2;
+}
+
+.popup-box .popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    max-width: 400px;
+    width: 100%;
+    transform: translate(-50%, -50%) scale(0.95);
+}
+
+.popup-box, .popup{
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+}
+
+.popup-box.show, .popup-box.show .popup{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.popup-box.show .popup{
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup .content{
+    background: rgb(251,84,63);
+    background: rgb(121,251,63);
+    background: radial-gradient(circle, rgba(121,251,63,1) 0%, rgba(90,172,225,0.9979342078628326) 73%);
+}
+
+.content header{
+    padding: 15px 25px;
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content header p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.content header i{
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.content form{
+    margin: 15px 25px 35px;
+}
+
+.content form .row{
+    margin-bottom: 20px;
+}
+
+.content form label{
+    display: block;
+    margin-bottom: 6px;
+    font-size: 18px;
+    margin-top: 18px;
+}
+
+
+.content form textarea{
+    height: 150px;
+    resize: none;
+    padding: 8px;
+}
+
+.content form :where(input,textarea){
+    width: 100%;
+    border: 1px solid #999;
+    border-radius: 4px;
+    outline: none;
+    height: 50px;
+    padding: 0px 15px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.content form button{
+    width: 100%;
+    height: 50px;
+    margin: 20px 0px 30px 0px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* ***************************************************************************************** */
+.container{
+    
+    margin: 50px;
+    text-align: center;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill,350px);
+}
+
+.container li{
+    list-style: none;
+    height: 380px;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 25px 20px 20px;    
+}
+
+.box , .plusicon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+   
+}
+
+.box .plusicon{
+    font-size: 60px;
+    color: slateblue;
+    height: 110px;
+    width: 110px;
+    border: 2px dashed slateblue;
+    border-radius: 50%;
+}
+
+.box p{
+    color: slateblue;
+    margin-top: 25px;
+    font-size: 30px;
+    font-weight:bolder;
+}
+
+.task{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.note .details{
+    overflow-y: auto;
+  } 
+
+.task p{
+font-size: 30px;
+font-weight: bolder;
+}
+
+.task span{
+    margin-top: 10px;
+    font-size: 20px;
+    display: block;
+}
+
+.task .bottom_items{
+display: flex;
+align-items: center;
+justify-content: space-between;
+border-top: 1px solid slategrey;
+padding-top: 15px;
+}
+
+.bottom_items span{
+    color: slateblue;
+    font-size: 20px;
+}
+
+
+
+.bottom_items .setting_icon i{
+    cursor: pointer;
+}
+
+.setting_icon{
+    position: relative;
+}
+
+.setting_icon .menu{
+box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
+position: absolute;
+bottom: 0;
+border-radius: 10px;
+background-color: rgb(212, 193, 193);
+transform: scale(0);
+transform-origin: bottom right;
+transition: transform 0.2s ease;
+right: -10px;
+z-index: 1;
+}
+
+.setting_icon .menu li{
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0;
+    justify-content: flex-start;
+    cursor: pointer;
+    padding: 19px 17px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.menu li:hover{
+background-color: rgb(243, 234, 234);
+}
+
+.menu li i{
+    padding-right: 8px;
+}
+
+.setting_icon.show .menu{
+    transform: scale(1);
+};
